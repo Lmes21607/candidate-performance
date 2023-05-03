@@ -50,7 +50,7 @@ class Player(BasePlayer):
     payoff1 = models.CurrencyField()
     payoff2 = models.CurrencyField()
     payoff3 = models.CurrencyField()
-    risk = models.StringField(label='Выберете Ваш пол ', choices=["1", "2", "3","4","5","6"], )
+    risk = models.StringField(label='Ответ:', choices=["1", "2", "3","4","5","6"], )
 
 # PAGES
 
