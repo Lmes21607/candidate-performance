@@ -32,9 +32,9 @@ class Player(BasePlayer):
     color = models.StringField(label='Какой Ваш любимый цвет?', )
     place = models.IntegerField(label='Как Вы помните/думаете Вы находитесь в первой или во второй половине рейтинга по GPA?', choices=[1,2],)
     question_answer = models.StringField()
-    number1 = models.IntegerField(min=0, max=1000)
-    number2 = models.IntegerField(min=0, max=1000)
-    number3 = models.IntegerField(min=0, max=1000)
+    number1 = models.IntegerField(min=0, max=100)
+    number2 = models.IntegerField(min=0, max=100)
+    number3 = models.IntegerField(min=0, max=100)
     ran=models.IntegerField()
     can_gender=models.StringField()
     can_city = models.StringField()
@@ -171,12 +171,12 @@ class Simple_CV(Page):
             if fe>50:
                 player.payoff1 = C.payment_per_correct_answer*player.number1
             else:
-                player.payoff1 = C.payment_per_correct_answer * (1000-player.number1)
+                player.payoff1 = C.payment_per_correct_answer * (100-player.number1)
         elif player.sh == 1:
             if fm>50:
                 player.payoff1 = C.payment_per_correct_answer*player.number1
             else:
-                player.payoff1 = C.payment_per_correct_answer * (1000-player.number1)
+                player.payoff1 = C.payment_per_correct_answer * (100-player.number1)
 
 class Test_CV(Page):
     form_model = "player"
@@ -208,12 +208,12 @@ class Test_CV(Page):
             if fe>50:
                 player.payoff2 = C.payment_per_correct_answer*player.number2
             else:
-                player.payoff2 = C.payment_per_correct_answer * (1000-player.number2)
+                player.payoff2 = C.payment_per_correct_answer * (100-player.number2)
         elif player.sh == 1:
             if fm>50:
                 player.payoff2 = C.payment_per_correct_answer*player.number2
             else:
-                player.payoff2 = C.payment_per_correct_answer * (1000-player.number2)
+                player.payoff2 = C.payment_per_correct_answer * (100-player.number2)
 
 
 class Corr_CV(Page):
@@ -244,12 +244,12 @@ class Corr_CV(Page):
             if fe>50:
                 player.payoff3 = C.payment_per_correct_answer*player.number3
             else:
-                player.payoff3 = C.payment_per_correct_answer * (1000-player.number3)
+                player.payoff3 = C.payment_per_correct_answer * (100-player.number3)
         elif player.sh == 1:
             if fm>50:
                 player.payoff3 = C.payment_per_correct_answer*player.number3
             else:
-                player.payoff3 = C.payment_per_correct_answer * (1000-player.number3)
+                player.payoff3 = C.payment_per_correct_answer * (100-player.number3)
 
 
 class Survey(Page):
