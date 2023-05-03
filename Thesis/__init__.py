@@ -50,6 +50,7 @@ class Player(BasePlayer):
     payoff1 = models.CurrencyField()
     payoff2 = models.CurrencyField()
     payoff3 = models.CurrencyField()
+    risk = models.StringField(label='Выберете Ваш пол ', choices=["1", "2", "3","4","5","6"], )
 
 # PAGES
 
@@ -63,7 +64,7 @@ class FirstPage(Page):
         if sh == 0:
             link = '"Эссе на тему "Выберите какую-либо реформу или блок реформ 1990-х годов в одной из республик бывшего СССР, кроме России (после 21.08.1991). Какие из связанных с этой реформой проблем могли бы быть интересны для экономического исследования и почему?""'
         elif sh == 1:
-            link = "https://drive.google.com/file/d/1Gj_MJF8RwUuL9_lB8AUUO4Xcbf6nZB9l/view?usp=sharing"
+            link = "<a href="https://drive.google.com/file/d/1Gj_MJF8RwUuL9_lB8AUUO4Xcbf6nZB9l/view?usp=sharing">данное задание </a>"
 
         return{"sh": sh, "link": link }
 
@@ -188,7 +189,7 @@ class Test_CV(Page):
             mid_text='"Эссе на тему «Можно ли было плавно реформировать советскую экономику?»"'
         elif player.sh == 1:
             mid=player.mid_math
-            mid_text ='https://drive.google.com/file/d/1PtRnJ76bmSMrridTYoDBTAb3FIe_gjK5/view?usp=sharing'
+            mid_text = '<a href="https://drive.google.com/file/d/1PtRnJ76bmSMrridTYoDBTAb3FIe_gjK5/view?usp=sharing">Задание</a>'
         return { 'gender': player.can_gender,
                  'zodiac': player.can_zodiac,
                  'city': player.can_city,
@@ -255,6 +256,10 @@ class Survey(Page):
     form_model = "player"
     form_fields = ["gender", "zodiac", "city", "hobby", "bs", "color", "place"]
 
+class Risk(Page):
+    form_model = "player"
+    form_fields = ["risk"]
+
 class Results(Page):
     @staticmethod
     def is_displayed(player:Player):
@@ -268,4 +273,4 @@ class Results(Page):
         return{
             "combined_payoff":combined_payoff
         }
-page_sequence = [FirstPage,Question,Simple_CV, Test_CV, Corr_CV, Survey, Results]
+page_sequence = [FirstPage,Question,Simple_CV, Test_CV, Corr_CV, Survey, Risk, Results]
