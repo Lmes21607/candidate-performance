@@ -62,7 +62,7 @@ class FirstPage(Page):
         sh = random.randint(0, 1)
         player.sh=sh
         if sh == 0:
-            link = '"Эссе на тему "Выберите какую-либо реформу или блок реформ 1990-х годов в одной из республик бывшего СССР, кроме России (после 21.08.1991). Какие из связанных с этой реформой проблем могли бы быть интересны для экономического исследования и почему?""'
+            link = 'эссе на тему "Выберите какую-либо реформу или блок реформ 1990-х годов в одной из республик бывшего СССР, кроме России (после 21.08.1991). Какие из связанных с этой реформой проблем могли бы быть интересны для экономического исследования и почему?"'
         elif sh == 1:
             link = '<a href="https://drive.google.com/file/d/1Gj_MJF8RwUuL9_lB8AUUO4Xcbf6nZB9l/view?usp=sharing">данное задание </a>'
 
@@ -186,7 +186,7 @@ class Test_CV(Page):
     def vars_for_template(player: Player):
         if player.sh == 0:
             mid=player.mid_essay
-            mid_text='"Эссе на тему «Можно ли было плавно реформировать советскую экономику?»"'
+            mid_text='эссе на тему «Можно ли было плавно реформировать советскую экономику?»'
         elif player.sh == 1:
             mid=player.mid_math
             mid_text = '<a href="https://drive.google.com/file/d/1PtRnJ76bmSMrridTYoDBTAb3FIe_gjK5/view?usp=sharing">Задание</a>'
