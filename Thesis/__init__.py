@@ -50,7 +50,8 @@ class Player(BasePlayer):
     payoff1 = models.CurrencyField()
     payoff2 = models.CurrencyField()
     payoff3 = models.CurrencyField()
-    risk = models.StringField(label='Ответ:', choices=["1", "2", "3","4","5","6"], )
+    payoff4 = models.CurrencyField()
+    risk = models.IntegerField(label='Ответ:', choices=[1,2,3,4,5,6], )
 
 # PAGES
 
@@ -259,6 +260,37 @@ class Survey(Page):
 class Risk(Page):
     form_model = "player"
     form_fields = ["risk"]
+    @staticmethod
+    def vars_for_template(player: Player):
+        lot = random.randint(0, 1)
+        player.lot=lot
+        if lot == 0:
+            if player.risk==1:
+                player.payoff4=C.payment_per_correct_answer*70
+            elif player.risk==2:
+                player.payoff4=C.payment_per_correct_answer*60
+            elif player.risk==3:
+                player.payoff4=C.payment_per_correct_answer*50
+            elif player.risk==4:
+                player.payoff4=C.payment_per_correct_answer*40
+            elif player.risk==5:
+                player.payoff4=C.payment_per_correct_answer*30
+            elif player.risk==6:
+                player.payoff4=C.payment_per_correct_answer*10   
+        elif lot == 1:
+            if player.risk==1:
+                player.payoff4=C.payment_per_correct_answer*70
+            elif player.risk==2:
+                player.payoff4=C.payment_per_correct_answer*90
+            elif player.risk==3:
+                player.payoff4=C.payment_per_correct_answer*110
+            elif player.risk==4:
+                player.payoff4=C.payment_per_correct_answer*130
+            elif player.risk==5:
+                player.payoff4=C.payment_per_correct_answer*150
+            elif player.risk==6:
+                player.payoff4=C.payment_per_correct_answer*170 
+        
 
 class Results(Page):
     @staticmethod
@@ -268,7 +300,7 @@ class Results(Page):
     @staticmethod
     def vars_for_template(player: Player):
         all_players = player.in_all_rounds()
-        combined_payoff=player.payoff1 + player.payoff2 + player.payoff2
+        combined_payoff=player.payoff1 + player.payoff2 + player.payoff2 + player.payoff4
 
         return{
             "combined_payoff":combined_payoff
