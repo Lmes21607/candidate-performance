@@ -262,7 +262,7 @@ class Risk(Page):
     form_model = "player"
     form_fields = ["risk"]
     @staticmethod
-    def vars_for_template(player: Player):
+    def  before_next_page(player: Player, timeout_happened):
         lot = random.randint(0, 1)
         if lot == 0:
             if player.risk==1:
