@@ -66,7 +66,7 @@ class FirstPage(Page):
         if sh == 0:
             link = 'эссе на тему "Выберите какую-либо реформу или блок реформ 1990-х годов в одной из республик бывшего СССР, кроме России (после 21.08.1991). Какие из связанных с этой реформой проблем могли бы быть интересны для экономического исследования и почему?"'
         elif sh == 1:
-            link = '<a href="https://drive.google.com/file/d/1Gj_MJF8RwUuL9_lB8AUUO4Xcbf6nZB9l/view?usp=sharing">данное задание </a>'
+            link = '<a href="https://drive.google.com/file/d/1Gj_MJF8RwUuL9_lB8AUUO4Xcbf6nZB9l/view?usp=sharing" target="_task">данное задание </a>'
 
         return{"sh": sh, "link": link }
 
@@ -191,7 +191,7 @@ class Test_CV(Page):
             mid_text='эссе на тему «Можно ли было плавно реформировать советскую экономику?»'
         elif player.sh == 1:
             mid=player.mid_math
-            mid_text = '<a href="https://drive.google.com/file/d/1PtRnJ76bmSMrridTYoDBTAb3FIe_gjK5/view?usp=sharing">Задание</a>'
+            mid_text = '<a href="https://drive.google.com/file/d/1PtRnJ76bmSMrridTYoDBTAb3FIe_gjK5/view?usp=sharing" target="_task_2">Задание</a>'
         return { 'gender': player.can_gender,
                  'zodiac': player.can_zodiac,
                  'city': player.can_city,
