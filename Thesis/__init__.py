@@ -305,4 +305,4 @@ class Results(Page):
         return{
             "combined_payoff":combined_payoff
         }
-page_sequence = [FirstPage,Question,Simple_CV, Test_CV, Corr_CV, Survey, Risk, Results]
+page_sequence = [FirstPage,Question,Simple_CV, Test_CV, Corr_CV , Risk, Survey, Results]
