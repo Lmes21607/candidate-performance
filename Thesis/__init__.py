@@ -264,7 +264,6 @@ class Risk(Page):
     @staticmethod
     def vars_for_template(player: Player):
         lot = random.randint(0, 1)
-        player.lot=lot
         if lot == 0:
             if player.risk==1:
                 player.payoff4=C.payment_per_correct_answer*70
