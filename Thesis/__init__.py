@@ -81,7 +81,7 @@ class Question(Page):
             q = 'Если Вы готовы приступить к эксперименту, нажмите на кнопку ниже (поставьте любой символ в строку)'
          
         elif question == 1:
-            q = "На какие факторы Вы бы обратили внимание при выборе кандидата для этого теста, если бы у Вас был доступ ко всем данным кандидатов?"      
+            q = "На какие факторы Вы бы обратили внимание при выборе кандидата для этого задания, если бы у Вас был доступ ко всем данным кандидатов?"      
         elif question == 2:
             q = "Kак Вы думаете, влияет ли пол на вероятность успеха при выполнении подобных работ?"
         return {"q":q}
@@ -147,10 +147,6 @@ class Simple_CV(Page):
         hobby = cv['hobby'][ran]
         bs = cv['bs'][ran]
         color = cv['color'][ran]
-        mid_math = cv['mid_math'][ran]
-        final_math = cv['final_math'][ran]
-        mid_essay = cv['mid_essay'][ran]
-        final_essay = cv['final_essay'][ran]
         player.ran=ran
         player.can_gender=gender
         player.can_zodiac=zodiac
@@ -158,13 +154,12 @@ class Simple_CV(Page):
         player.can_hobby=hobby
         player.can_bs=bs
         player.can_color=color
-        player.mid_math=mid_math
-        player.final_math=final_math
-        player.mid_essay=mid_essay
-        player.final_essay=final_essay
+        player.mid_math=cv['mid_math'][ran]
+        player.final_math=cv['final_math'][ran]
+        player.mid_essay=cv['mid_essay'][ran]
+        player.final_essay=cv['final_essay'][ran]
         return{'gender': gender, 'zodiac': zodiac, 'city': city, 'hobby': hobby, 'bs': bs, 'color': color,
-               'mid_math': mid_math, 'final_math': final_math,
-               'mid_essay': mid_essay, 'final_essay': final_essay, 'ran': ran}
+                'ran': ran}
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
