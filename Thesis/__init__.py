@@ -30,6 +30,7 @@ class Player(BasePlayer):
     hobby = models.StringField(label='Напишите Ваши хобби (можно несколько, через запятую)', )
     bs = models.IntegerField(label='Сколько братьев и сестер у Вас есть?',min=0)
     color = models.StringField(label='Какой Ваш любимый цвет?', )
+    corr = models.StringField(label='Как Вы считаете, коэффециент корелляции 0.4 это', choices=["маленькая корелляция", "средняя корелляция", "высокая корелляция"],)
     email = models.StringField(label='Напишите, пожалуйста, адрес вашей электронной почты (необходимо для выплаты выигрыша)', )
     place = models.IntegerField(label='Как Вы помните/думаете Вы находитесь в первой или во второй половине рейтинга по GPA?', choices=[1,2],)
     question_answer = models.StringField()
@@ -256,7 +257,7 @@ class Corr_CV(Page):
 
 class Survey(Page):
     form_model = "player"
-    form_fields = ["gender", "zodiac", "city", "hobby", "bs", "color", "place", "email"]
+    form_fields = ["gender", "zodiac", "city", "hobby", "bs", "color", "place", "corr", "email"]
 
 class Risk(Page):
     form_model = "player"
