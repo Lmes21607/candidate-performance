@@ -302,7 +302,7 @@ class Results(Page):
     @staticmethod
     def vars_for_template(player: Player):
         all_players = player.in_all_rounds()
-        combined_payoff=player.payoff1 + player.payoff2 + player.payoff2 + player.payoff4
+        combined_payoff=player.payoff1 + player.payoff2 + player.payoff3 + player.payoff4
 
         return{
             "combined_payoff":combined_payoff
