@@ -34,6 +34,7 @@ class Player(BasePlayer):
     email = models.StringField(label='Напишите, пожалуйста, адрес вашей электронной почты (необходимо для выплаты выигрыша, поэтому желательно nes)', )
     place = models.IntegerField(label='Как Вы помните/думаете Вы находитесь в первой или во второй половине рейтинга по GPA?', choices=[1,2],)
     question_answer = models.StringField()
+    q=models.StringField()
     number1 = models.IntegerField(min=0, max=100)
     number2 = models.IntegerField(min=0, max=100)
     number3 = models.IntegerField(min=0, max=100)
@@ -77,6 +78,7 @@ class Question(Page):
     @staticmethod
     def vars_for_template(player: Player):
         question = random.randint(0, 2)
+        player.q=q
         if question == 0:
             q = 'Если Вы готовы приступить к эксперименту, нажмите на кнопку ниже (поставьте любой символ в строку)'
          
