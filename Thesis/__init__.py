@@ -73,21 +73,18 @@ class FirstPage(Page):
 
 class Question(Page):
     form_model = "player"
-    
+    form_fields = ["question_answer"]
     @staticmethod
     def vars_for_template(player: Player):
         question = random.randint(0, 2)
         if question == 0:
-            q = 'Если Вы готовы приступить к эксперименту, нажмите на кнопку ниже'
-            form_fields = []
+            q = 'Если Вы готовы приступить к эксперименту, нажмите на кнопку ниже (поставьте любой символ в строку)'
+         
         elif question == 1:
-            q = "На какие факторы Вы бы обратили внимание при выборе кандидата для этого теста, если бы у Вас был доступ ко всем данным кандидатов?"
-            form_fields = ["question_answer"]
+            q = "На какие факторы Вы бы обратили внимание при выборе кандидата для этого теста, если бы у Вас был доступ ко всем данным кандидатов?"      
         elif question == 2:
             q = "Kак Вы думаете, влияет ли пол на вероятность успеха при выполнении подобных работ?"
-             form_fields = ["question_answer"]
-        return {"q":q,
-               "form_fields": form_fields}
+        return {"q":q}
 
 class Simple_CV(Page):
     form_model = "player"
